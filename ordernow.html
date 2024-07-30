@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Now</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" class="dropbtn">Contact</a>
+                    <div class="dropdown-content">
+                        <a href="contact.html#phone">Phone</a>
+                        <a href="contact.html#email">Email</a>
+                        <a href="contact.html#location">Location</a>
+                        <a href="contact.html#form">Contact Form</a>
+                    </div>
+                </li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="ordernow.html">Order now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Order Now</h2>
+            <form id="orderForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="cuisine">Select Cuisine:</label>
+                <select id="cuisine" name="cuisine" required>
+                    <option value="">Select Cuisine</option>
+                    <option value="indian">Indian</option>
+                    <option value="italian">Italian</option>
+                    <option value="chinese">Chinese</option>
+                </select>
+
+                <label for="food">Select Food:</label>
+                <select id="food" name="food" required>
+                    <option value="">Select Food</option>
+                </select>
+
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" required></textarea>
+
+                <button type="submit" onclick="aler()">Place Order</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Restaurant Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const cuisineFoodMap = {
+            indian: ['Butter Chicken', 'Paneer Tikka', 'Biryani'],
+            italian: ['Margherita Pizza', 'Pasta Carbonara', 'Tiramisu'],
+            chinese: ['Kung Pao Chicken', 'Sweet and Sour Pork', 'Spring Rolls'],
+        };
+
+        document.getElementById('cuisine').addEventListener('change', function() {
+            const cuisine = this.value;
+            const foodSelect = document.getElementById('food');
+            foodSelect.innerHTML = '<option value="">Select Food</option>'; 
+            if (cuisine) {
+                cuisineFoodMap[cuisine].forEach(food => {
+                    const option = document.createElement('option');
+                    option.value = food;
+                    option.textContent = food;
+                    foodSelect.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('orderForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const orderData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                cuisine: document.getElementById('cuisine').value,
+                food: document.getElementById('food').value,
+                address: document.getElementById('address').value
+            };
+
+            const response = await fetch('http://localhost:5000/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderData)
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Order placed successfully!');
+                document.getElementById('orderForm').reset();
+            } else {
+                alert('Error placing order: ' + data.message);
+            }
+        });
+        document.getElementById("btn_order_submit")
+        document.getElementById("orderform").addEventListener("Place Order",aler);
+        function aler(){
+          alert("Your order is confirmed thank you");
+        }
+    </script>
+</body>
+</html>

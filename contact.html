@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" class="dropbtn">Contact</a>
+                    <div class="dropdown-content">
+                        <a href="contact.html#phone">Phone</a>
+                        <a href="contact.html#email">Email</a>
+                        <a href="contact.html#location">Location</a>
+                        <a href="contact.html#form">Contact Form</a>
+                    </div>
+                </li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="ordernow.html">Order now</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="hero">
+            <h1>Contact Us</h1>
+        </div>
+        <section id="contact">
+            <h2>Get in Touch</h2>
+            <p>If you have any questions or need further information, please contact us using the details below.</p>
+            
+            <div class="contact-info">
+                <h3 id="phone">Phone</h3>
+                <p>(123) 456-7890</p>
+                
+                <h3 id="email">Email</h3>
+                <p><a href="mailto:info@ourrestaurant.com">info@ourrestaurant.com</a></p>
+                
+                <h3 id="location">Location</h3>
+                <p>123 Main Street, Anytown, USA</p>
+            </div>
+
+            <h2 id="form">Contact Form</h2>
+            <form action="submit_form.php" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Our Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>

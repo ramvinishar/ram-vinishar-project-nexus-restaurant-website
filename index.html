@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Home Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li class="dropdown">
+                    <a href="contact.html" class="dropbtn">Contact</a>
+                    <div class="dropdown-content">
+                        <a href="#phone">Phone</a>
+                        <a href="#email">Email</a>
+                        <a href="#location">Location</a>
+                    </div>
+                </li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="ordernow.html">Order Now</a></li>
+            </ul>
+        </nav>
+        <div class="hero" id="home">
+            <h1>Welcome to The Restro Cafe</h1>
+            <p>Experience the best cuisines from around the world</p>
+        </div>
+    </header>
+    <main>
+        <section id="cuisines">
+            <h2>Our Cuisines</h2>
+            <div class="cuisine">
+                <a href="cuisine-indian.html?cuisine=indian">
+                    <h3>Indian</h3>
+                    <p>Spicy and flavorful Indian dishes.</p>
+                    <img src="images/indian.jpg" height="200" width="250" alt="Indian Cuisine">
+                </a>
+            </div>
+
+            <div class="cuisine">
+                <a href="cuisine-chinese.html?cuisine=chinese">
+                    <h3>Chinese</h3>
+                    <p>Authentic Chinese food with traditional flavors.</p>
+                    <img src="images/chinese.jpg" alt="Chinese Cuisine">
+                </a>
+            </div>
+            <div class="cuisine">
+                <a href="cuisine-italian.html?cuisine=italian">
+                    <h3>Italian</h3>
+                    <p>Delicious pasta, pizza, and more.</p>
+                    <img src="images/italian.jpg" alt="Italian Cuisine">
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Our Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>
